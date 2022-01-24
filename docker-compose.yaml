@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  bui-api-login:
+    image: bui-api-people:latest
+    build: .
+    ports:
+      - "8100:8100"
+    env_file:
+      - .env.local
+
+    volumes:
+      - /Users/vesko/coding/toni/bui2/local/data/bui_api_people:/app/config
+ 
