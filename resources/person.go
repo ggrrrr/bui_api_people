@@ -98,7 +98,7 @@ func Update(w http.ResponseWriter, r *http.Request) {
 	}
 	if len(req.FullName) < 4 {
 		api.ResponseError(w, 400, "full_name", fmt.Errorf("please set proper names"))
-
+		return
 	}
 
 	person, err := models.GetById(r.Context(), req.Id)

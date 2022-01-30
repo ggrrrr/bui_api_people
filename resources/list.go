@@ -16,11 +16,13 @@ func ListRequest(w http.ResponseWriter, r *http.Request) {
 	t, err := api.GetAuthorizationBearer(r)
 	log.Printf("ListRequest(%v): token: %v", api.GetUserAgent(r.Context()), t)
 	if err != nil {
+		log.Printf("auth error: %v", err)
 		api.ResponseErrorUnauthorized(w, err)
 		return
 	}
 	apiClaims, err := token.Verify(t, r.Context())
 	if err != nil {
+		log.Printf("token error: %v", err)
 		api.ResponseErrorUnauthorized(w, err)
 		return
 	}

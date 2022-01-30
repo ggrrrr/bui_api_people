@@ -1,11 +1,11 @@
-version: "3.9"
+version: "3.3"
 
 services:
-  bui-api-login:
+  bui-api-people:
     image: bui-api-people:latest
     build: .
     ports:
-      - "8100:8100"
+      - "8200:8200"
     env_file:
       - .env.local
 
